@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>{{ config('app.name') }}</title>
+@section('title', 'Service')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        Services
-    </body>
-</html>
+@section('content')
+    Service Page
+    @if (count($services))
+        <ul>
+        @foreach ($services as $service)
+            <li>{{ $service }}</li>
+        @endforeach
+        </ul>
+    @endif
+@endsection
+        
