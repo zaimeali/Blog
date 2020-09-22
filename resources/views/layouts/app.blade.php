@@ -32,8 +32,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    {{-- {{ URL::current() }}
+                    {{ Request::url() }} --}}
+                    {{-- {{ Request::path() }} --}}
                     <ul class="navbar-nav mr-auto">
-
+                        @if (Request::path() === 'posts/create')
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark text-light btn-sm" href="/posts">Go Back</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-dark text-light btn-sm" href="/posts/create">Add New Post</a>
+                            </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -85,6 +96,7 @@
         </nav>
 
         <main class="py-4 container">
+            @include('inc.messages')
             @yield('content')
         </main>
     </div>

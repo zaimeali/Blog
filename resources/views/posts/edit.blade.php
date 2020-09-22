@@ -2,17 +2,17 @@
 
 @section('content')
 
-    <h1>Create Post</h1>
+    <h1>Edit Post</h1>
 
     {!! Form::open([
-        'action' => 'PostsController@store',
-        'method' => 'POST',
+        'action' => ['PostsController@update', $post->id],
+        'method' => 'PUT',
     ]) !!}
         <div class="form-group">
             {{ Form::label('title', 'Title') }}
             {{ Form::text(
                 'title',  // name
-                '',  // value
+                $post->title,  // value
                 [
                     'class' => 'form-control', 
                     'placeholder' => 'Title'
@@ -24,13 +24,15 @@
             {{ Form::label('body', 'Body') }}
             {{ Form::textarea(
                 'body',  // name
-                '',  // value
+                $post->body,  // value
                 [
                     'class' => 'form-control', 
                     'placeholder' => 'Your content here...'
                 ]) 
             }}
         </div>
+
+        {{ Form::hidden('_method', 'PUT') }}
 
         {{ Form::submit('Submit', [
             'class' => 'btn btn-secondary'

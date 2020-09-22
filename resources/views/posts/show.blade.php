@@ -7,5 +7,7 @@
         <p>{{ $post->body }}</p>
         <hr>
         <small>{{ $post->created_at }}</small>
+        <hr>
+        <a href="/posts/{{ $post->id }}/edit" class="btn btn-success">Edit this Post</a>
     </div>
 @endsection
