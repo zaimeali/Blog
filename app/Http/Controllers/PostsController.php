@@ -93,7 +93,7 @@ class PostsController extends Controller
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->save();
-        return redirect('/posts')->with('success', 'Post Updated.');
+        return redirect('/posts/'.$id)->with('success', 'Post Updated.');
     }
 
     /**
@@ -104,6 +104,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect('/posts')->with('success', 'Post Deleted.');
     }
 }
