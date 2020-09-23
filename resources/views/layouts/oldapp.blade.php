@@ -32,6 +32,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    {{-- {{ URL::current() }}
+                    {{ Request::url() }} --}}
+                    {{-- {{ Request::path() }} --}}
                     <ul class="navbar-nav mr-auto">
                         @if (Request::path() === 'posts/create')
                             <li class="nav-item">
