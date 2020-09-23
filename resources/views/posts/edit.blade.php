@@ -7,6 +7,7 @@
     {!! Form::open([
         'action' => ['PostsController@update', $post->id],
         'method' => 'PUT',
+        'enctype' => 'multipart/form-data'
     ]) !!}
         <div class="form-group">
             {{ Form::label('title', 'Title') }}
@@ -30,6 +31,10 @@
                     'placeholder' => 'Your content here...'
                 ]) 
             }}
+        </div>
+
+        <div class="form-group">
+            {{ Form::file('cover_image') }}
         </div>
 
         {{ Form::hidden('_method', 'PUT') }}

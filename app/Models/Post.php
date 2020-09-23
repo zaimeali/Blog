@@ -17,4 +17,9 @@ class Post extends Model
 
     // timestamps
     // public $timestamps = false;   // if false then it will not add timestamp in a post table
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 }
